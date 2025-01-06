@@ -1,65 +1,118 @@
-import Aboutfooter from "@/components/Aboutfooter";
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
 import { Badge } from "@/components/ui/badge";
-import { Circle, Heart, User2 } from "lucide-react";
-const page = () => {
-  const items = [
-    { hobby: "coding" },
-    { hobby: "playing games" },
-    { hobby: "Watching Anima" },
-    { hobby: "Tech Blog writing" },
-    { hobby: "creating Cool Projects" },
+import { Card } from "@/components/ui/card";
+import {
+  Building2,
+  Circle,
+  Goal,
+  Heart,
+  LightbulbIcon,
+  Target,
+  User2,
+} from "lucide-react";
+
+function App() {
+  const goals = [
+    {
+      icon: <Target className="h-5 w-5" />,
+      title: "Deliver Excellence in IT Solutions",
+      description:
+        "Providing top-tier technology solutions tailored to your needs",
+    },
+    {
+      icon: <LightbulbIcon className="h-5 w-5" />,
+      title: "Promote Innovation and Growth",
+      description:
+        "Fostering creative solutions and sustainable business expansion",
+    },
+    {
+      icon: <Circle className="h-5 w-5" />,
+      title: "Empower Through Education",
+      description: "Enabling growth through comprehensive training programs",
+    },
+    {
+      icon: <Goal className="h-5 w-5" />,
+      title: "Focus on Customized Solutions",
+      description: "Developing personalized strategies for unique challenges",
+    },
+    {
+      icon: <Heart className="h-5 w-5" />,
+      title: "Cultivate Thought Leadership",
+      description:
+        "Leading the industry with innovative thinking and expertise",
+    },
   ];
 
   return (
-    // ABOUT PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
-      <Badge className=" gap-2">
-        <User2 className="h-5 w-5" />
-        About me
-      </Badge>
-      <div className="flex flex-col gap-3">
-       
-          <Heading>
-            Software Engineer And Web <br /> Developer, Based In India.
-          </Heading>
-   
-        <FramerWrapper y={0} x={100} >
-          <p className=" font-poppins text-xl w-full text-primary max-sm:text-lg">
-            I am a Full Stack Web Developer from Ramgarh cantt, Jharkhand,
-            India. I love crafting cool web projects and also open-source
-            contribuitions. My biggest achievement lies in my mastery of
-            JavaScript and CSS, ensuring pixel-perfect designs that captivate
-            users. With a keen eye for detail and a commitment to delivery
-            speed, I excel at creating seamless and responsive interfaces that
-            leave a lasting impression.
-          </p>
-        </FramerWrapper>
-      </div>
-      <FramerWrapper className="w-full flex flex-row justify-between max-lg:flex-col " y={100} delay={0.30}>
-        <Aboutfooter />
-      </FramerWrapper>
-      <FramerWrapper className="block" y={100} delay={0.31}>
-        <h1 className="gap-2 text-3xl font-poppins text-primary font-semibold flex icon_underline relative max-sm:text-2xl">
-          {" "}
-          <Heart className="h-8 w-8" /> Hobbies
-        </h1>
-        <div className="w-full h-fit p-2 flex flex-row justify-between gap-7 max-lg:flex-col">
-          {items.map((val, indx) => {
-            return (
-              <div
-                key={indx}
-                className="flex gap-2 justify-center items-center flex-row text-xl text-primary pt-3 max-lg:justify-start "
-              >
-                <Circle className="h-3 w-3" /> {val.hobby}
-              </div>
-            );
-          })}
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 p-6 md:p-12">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header Section */}
+        <div className="space-y-4">
+          <Badge variant="outline" className="gap-2 px-4 py-2 text-base">
+            <User2 className="h-4 w-4" />
+            About Us
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+            Who We Are
+          </h1>
         </div>
-      </FramerWrapper>
+
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Company Description */}
+          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Building2 className="h-6 w-6 text-primary" />
+              </div>
+              <h2 className="text-2xl font-semibold">Our Company</h2>
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                focal Sprint, a division of Chavin IT Solution Pvt Ltd, is a
+                trusted name in IT consulting and niche professional training.
+                With over five years of expertise in the tech consulting and
+                training industry and a management team boasting 25+ years of
+                experience, we specialize in delivering tailored solutions to
+                empower businesses and individuals.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our commitment to excellence, innovation, and client-centric
+                approaches sets us apart. Let us help you unlock your potential
+                with cutting-edge solutions and industry-leading expertise.
+              </p>
+            </div>
+          </Card>
+
+          {/* Goals Grid */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Our Goals</h2>
+            <div className="grid gap-4">
+              {goals.map((goal, index) => (
+                <Card
+                  key={index}
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      {goal.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">
+                        {goal.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {goal.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
+}
 
-export default page;
+export default App;

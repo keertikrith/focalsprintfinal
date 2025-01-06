@@ -1,121 +1,97 @@
-import FramerWrapper from "@/components/animation/FramerWrapper";
-import Heading from "@/components/Heading";
-import ProjectCards from "@/components/ProjectsCard";
 import { Badge } from "@/components/ui/badge";
-import { Layers } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Layers, Building, Lightbulb, Compass } from "lucide-react";
 
-const projectsPage = () => {
-  // PROJECTS DATA
-  const Projects = [
+function ConsultingPage() {
+  const offerings = [
     {
-      title: "Devzone - A community chat app for devs",
-      description:
-        `DevZone is the ultimate chat platform for developers
-to connect, collaborate, and code together. Join the conversation and level up your coding journey.`,
-      tags: ["Zustand", "Supabase", "Shadcn Ui", "Nextjs"],
-      link: "https://devzone-ti.vercel.app/",
-    },
-   
-    {
-      title: "itZmyLink- One Page many Links",
-      description:
-        "itZmyLink is a simple platform where user can create a personalized page to showcase all your social media profiles in one place. ",
-      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://github.com/taqui-786/itZmyLink",
+      icon: <Building className="h-5 w-5" />,
+      title: "Business Transformation",
+      description: "Drive organizational change and improve business processes",
     },
     {
-      title: "GitEstimate- Github estimate worth generator",
+      icon: <Lightbulb className="h-5 w-5" />,
+      title: "Customized Consulting Solutions",
       description:
-        "GitEstimate is a simple fun tool where user can generate their github estimate worth card just by entering their github username. ",
-      tags: ["Nextjs", "Typescript", "Shadcn Ui"],
-      link: "https://github.com/taqui-786/GitEstimate",
+        "Tailored strategies to address your unique business challenges",
     },
     {
-      title: "Mixcn-ui- Reusable components for Nextjs",
+      icon: <Compass className="h-5 w-5" />,
+      title: "Solution Architecture and Design",
       description:
-        "This is Nextjs app with a Collection of Nextjs Components - (Currently under Devlelopment) ",
-      tags: ["Nextjs", "Shadcnui", "Npx","Library"],
-      link: "https://mixcn-ui.vercel.app",
-    },
-    {
-      title: "Rupeespot- All deals Product in one place",
-      description:
-        "This is a free tool to check price history charts for millions of products for popular Indian stores such as Amazon and Flipkart. ",
-      tags: ["Nextjs", "Freelancing", "MySQL"],
-      link: "https://rupeespot.com/",
-    },
-    {
-      title: "Formcraft- Build Type-Safe Forms with Zero Effort",
-      description:
-        "Create production-ready forms with Zod validation, React Hook Form, and TypeScript. Design, customize, and deploy in minutes.",
-      tags: ["Nextjs", "Shadcnui", "Zod", "React Hook Form "],
-      link: "https://formcraft-ti.vercel.app/",
-    },
-    
-    {
-      title: "KryptoKapital- Investing in Cryptocurreny",
-      description:
-        "This is a platform for learning about cryptocurrency with many tools and festures. It is very big project. ",
-      tags: ["Nextjs", "Freelancing", "Supabase"],
-      link: "https://pro.kryptokapital.info/",
-    },
-    {
-      title: "FriendZ - A social media Platform",
-      description:
-        "FriendZ is a social media app made with modern tech stacks such as redis, Authjs etc. A user can Create, delete, like, comment Post. ",
-      tags: ["Redis", "Authjs", "Typescript", "Nextjs"],
-      link: "https://github.com/taqui-786/project-friendz",
-    },
-    {
-      title: "ChatApp- Simple instagram clone",
-      description:
-        "ChatApp is similar to instagram, you can create, edit, delete, like,comment, post and  Follow, unfollow users",
-      tags: ["Reactjs", "Javascript"],
-      link: "https://github.com/taqui-786/chatapp-api",
-    },
-    {
-      title: "Devletter - A Newsletter for devs",
-      description:
-        "Devletter ia a newsletter subscribing single page app made with Nextjs and Tailwindcss.",
-      tags: ["Nextjs", "Tailwindcss"],
-      link: "https://github.com/taqui-786/Devletter",
-    },
-    {
-      title: "CrouMaker - A Crousal Maker App",
-      description:
-        "Crousal Maker is a tool with in-built crousals templates edit and download it in any format.",
-      tags: ["Nextjs", "jsPDF", "html2canvas", "Shadcn Ui"],
-      link: "https://github.com/taqui-786/crousal-maker",
+        "Create robust and scalable solutions for your business needs",
     },
   ];
 
   return (
-    // PROJECT PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
-      <Badge className=" gap-2">
-        <Layers className="h-5 w-5" />
-        Projects
-      </Badge>
-      <div className="flex flex-col gap-3">
-        <Heading>My Projects</Heading>
-        <FramerWrapper y={0} x={200}>
-          <p className=" font-poppins text-lg w-full text-primary max-sm:text-base">
-            I love to Build Cool Projects. Here, you&#x27;ll find a curated
-            collection of my creative endeavors and technical projects. Each
-            piece represents a journey of innovation, problem-solving, and
-            continuous learning. Feel free to explore this showcase of my
-            passion and expertise in action.
-          </p>
-        </FramerWrapper>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 p-6 md:p-12">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header Section */}
+        <div className="space-y-4">
+          <Badge variant="outline" className="gap-2 px-4 py-2 text-base">
+            <Layers className="h-4 w-4" />
+            Consulting and Expert Guidance
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground pb-1">
+            Consulting and Expert Guidance
+          </h1>
+        </div>
 
-      <div className=" w-full flex flex-row flex-wrap gap-3 max-lg:flex-col">
-        {Projects.map((val, indx) => {
-          return <ProjectCards key={indx} value={val} num={indx} />;
-        })}
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Overview Section */}
+          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Layers className="h-6 w-6 text-primary" />
+              </div>
+              <h2 className="text-2xl font-semibold">Service Overview</h2>
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                focal Sprint provides tailored consulting services to address
+                your business challenges and drive transformation. Our
+                consulting services are backed by industry expertise, innovative
+                solutions, and client-focused strategies.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Whether you&apos;re a startup or an established organization,
+                our team will guide you every step of the way to achieve your
+                business goals.
+              </p>
+            </div>
+          </Card>
+
+          {/* Offerings Grid */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Key Offerings</h2>
+            <div className="grid gap-4">
+              {offerings.map((offering, index) => (
+                <Card
+                  key={index}
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      {offering.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">
+                        {offering.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {offering.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
-};
+}
 
-export default projectsPage;
+export default ConsultingPage;

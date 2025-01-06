@@ -1,21 +1,21 @@
-import logo from "../../public/portfolioLogo.png";
-import Image from "next/image"
+import Lottie from "react-lottie";
+import animationData from "../../public/assest1.json"; // Relative path from components directory
 
-const HeroImage = ()  => {
+const HeroImage = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
+  return (
+    <div>
+      <Lottie options={defaultOptions} height={400} width={400} />
+    </div>
+  );
+};
 
-
-    return(
-        <>
-          <Image
-          src={logo}
-          alt="logo"
-          loading="eager"
-          priority
-          height={1000}
-          width={1000}
-        />
-        </>
-    )
-}
-export default HeroImage
+export default HeroImage;

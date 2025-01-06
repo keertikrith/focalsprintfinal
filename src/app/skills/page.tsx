@@ -1,75 +1,106 @@
-import Heading from "@/components/Heading";
-import SkillsFooter from "@/components/SkillsFotter";
 import { Badge } from "@/components/ui/badge";
-import { Lightbulb } from "lucide-react";
-import html from '../../../public/html.png'
-import css from '../../../public/css.png'
-import scss from '../../../public/scss.png'
-import js from '../../../public/js.png'
-import ts from '../../../public/ts.png'
-import react from '../../../public/react.png'
-import nextjs from '../../../public/nextjs.jpeg'
-import cplus from '../../../public/c++.jpeg'
-import tailwind from '../../../public/tailwindcss.png'
-import github from '../../../public/github.png'
-import vscode from '../../../public/vscode.png'
-import FramerWrapper from "@/components/animation/FramerWrapper";
-const skillPage = () => {
+import { Card } from "@/components/ui/card";
+import { Lightbulb, Code, Database, Brain, Cloud, Award } from "lucide-react";
 
-    const language = [
-        {alt:"html", img:html},
-        {alt:"css", img:css},
-        {alt:"js", img:js},
-        {alt:"ts", img:ts},
-        {alt:"cplus", img:cplus},
-    ]
-    const framework = [
-        {alt:"react", img:react},
-        {alt:"nextjs", img:nextjs},
-        {alt:"scss", img:scss},
-        {alt:"tailwind", img:tailwind},
-        {alt:"github", img:github},
-        {alt:"vscode", img:vscode},
-    ]
-       
+function HandsOnLearningPage() {
+  const programs = [
+    {
+      icon: <Code className="h-5 w-5" />,
+      title: "Java and Spring Boot",
+      description: "Master backend development and scalable architectures",
+    },
+    {
+      icon: <Database className="h-5 w-5" />,
+      title: "Data Science",
+      description:
+        "Dive into analytics, visualization, and predictive modeling",
+    },
+    {
+      icon: <Brain className="h-5 w-5" />,
+      title: "AI/ML (Python)",
+      description:
+        "Learn machine learning algorithms and artificial intelligence techniques",
+    },
+    {
+      icon: <Cloud className="h-5 w-5" />,
+      title: "DevOps (AWS, Azure)",
+      description: "Build expertise in automation and cloud infrastructure",
+    },
+    {
+      icon: <Award className="h-5 w-5" />,
+      title: "Cloud Certifications",
+      description: "Gain globally recognized certifications",
+    },
+  ];
 
   return (
-    // SKILLS PAGE
-    <div className="h-full w-full relative flex flex-col items-start gap-5 overflow-hidden">
-      <Badge className=" gap-2">
-        <Lightbulb className="h-5 w-5" />
-        My Skills
-      </Badge>
-      <div className="flex flex-col gap-3">
-        <Heading>My Technical Experience/Skills.</Heading>
-        <FramerWrapper y={0} x={200} >
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 p-6 md:p-12">
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Header Section */}
+        <div className="space-y-4">
+          <Badge variant="outline" className="gap-2 px-4 py-2 text-base">
+            <Lightbulb className="h-4 w-4" /> Hands-On Learning
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground pb-1">
+            Hands-On Learning
+          </h1>
+        </div>
 
-        <p className="font-poppins text-xl w-full text-primary max-sm:text-lg">
-          Currently i am a fresher and i have a solid understand of HTML5, CSS3, JS, TS and React, including
-          responsive design principles. I specialize in building web
-          applications and sites using Javascript, Typescript, React, Nextjs &
-          Node.
-        </p>
-        </FramerWrapper>
-        <FramerWrapper y={100} delay={0.30} className="block">
-        <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Programming Languages
-        </h1>
-        <div className="w-full h-fit flex-row flex justify-between items-center">
-        <SkillsFooter items={language} />
+        {/* Main Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Overview Section */}
+          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 bg-primary/10 rounded-lg">
+                <Lightbulb className="h-6 w-6 text-primary" />
+              </div>
+              <h2 className="text-2xl font-semibold">Learning Overview</h2>
+            </div>
+            <div className="space-y-6">
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                At focal Sprint, we offer immersive, hands-on learning
+                experiences in niche fields, ensuring our learners are equipped
+                with the skills and expertise required to excel in the rapidly
+                evolving tech landscape.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our training programs are available online and in classrooms,
+                with free demo sessions every Saturday. Join us and experience
+                the difference.
+              </p>
+            </div>
+          </Card>
+
+          {/* Programs Grid */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold">Programs Offered</h2>
+            <div className="grid gap-4">
+              {programs.map((program, index) => (
+                <Card
+                  key={index}
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      {program.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">
+                        {program.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground">
+                        {program.description}
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
         </div>
-        </FramerWrapper>
-        <FramerWrapper  className="block" y={100} delay={0.32}>
-        <h1 className="gap-2 text-2xl font-poppins text-primary font-semibold flex text_underline relative max-sm:text-xl">
-           Framework/Libraries and Version Control
-        </h1>
-        <div className="w-full h-fit flex-row flex justify-between items-center">
-        <SkillsFooter items={framework} />
-        </div>
-        </FramerWrapper>
       </div>
     </div>
   );
-};
+}
 
-export default skillPage;
+export default HandsOnLearningPage;
