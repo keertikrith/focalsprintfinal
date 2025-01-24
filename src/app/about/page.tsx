@@ -43,31 +43,34 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 p-6 md:p-12">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <div className="min-h-screen bg-gradient-to-bl flex items-center justify-center from-white via-blue-50 to-blue-100 p-6 md:p-12 rounded-xl">
+      <div className="max-w-7xl mx-auto space-y-6">
         {/* Header Section */}
         <div className="space-y-4">
-          <Badge variant="outline" className="gap-2 px-4 py-2 text-base">
+          <Badge
+            variant="outline"
+            className="gap-2 px-4 py-2 text-base text-[#2f7df4]"
+          >
             <User2 className="h-4 w-4" />
             About Us
           </Badge>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-            Who We Are
+            Who We Are?
           </h1>
         </div>
 
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Company Description */}
-          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 hover:shadow-lg transition-all duration-300 bg-card/50 backdrop-blur-sm group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Building2 className="h-6 w-6 text-primary" />
+              <div className="p-2 bg-primary/10 rounded-lg transition-colors duration-300 group-hover:bg-[#2f7df4]/10">
+                <Building2 className="h-6 w-6 text-primary transition-colors duration-300 group-hover:text-[#2f7df4]" />
               </div>
-              <h2 className="text-2xl font-semibold">Our Company</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Our Company</h2>
             </div>
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed">
                 focal Sprint, a division of Chavin IT Solution Pvt Ltd, is a
                 trusted name in IT consulting and niche professional training.
                 With over five years of expertise in the tech consulting and
@@ -75,7 +78,7 @@ function App() {
                 experience, we specialize in delivering tailored solutions to
                 empower businesses and individuals.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed">
                 Our commitment to excellence, innovation, and client-centric
                 approaches sets us apart. Let us help you unlock your potential
                 with cutting-edge solutions and industry-leading expertise.
@@ -85,22 +88,24 @@ function App() {
 
           {/* Goals Grid */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Our Goals</h2>
+            <h2 className="text-2xl font-semibold text-blue-700">Our Goals</h2>
             <div className="grid gap-4">
               {goals.map((goal, index) => (
                 <Card
                   key={index}
-                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1"
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1 group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      {goal.icon}
+                    <div className="p-2 bg-primary/10 rounded-lg transition-colors duration-300 group-hover:bg-[#2f7df4]/10">
+                      <div className="text-primary transition-colors duration-300 group-hover:text-[#2f7df4]">
+                        {goal.icon}
+                      </div>
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1">
                         {goal.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground">
+                      <p className="text-sm text-gray-600">
                         {goal.description}
                       </p>
                     </div>

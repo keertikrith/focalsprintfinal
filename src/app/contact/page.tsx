@@ -5,23 +5,60 @@ import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Phone, MapPin, Globe, User } from "lucide-react";
 
+
+
 const ContactPage = () => {
+  const contactInfo = [
+    {
+      icon: <MapPin className="h-5 w-5" />,
+      title: "Address",
+      description: (
+        <>
+          #929, 4th Floor, AECS Layout,
+          <br />
+          3rd Main Road,
+          <br />
+          Bangalore- 37
+        </>
+      ),
+    },
+    {
+      icon: <Phone className="h-5 w-5" />,
+      title: "Phone",
+      description: (
+        <>
+          Off: 080-42213272
+          <br />
+          Mob: 9949629935 / 8310590859
+        </>
+      ),
+    },
+    {
+      icon: <Globe className="h-5 w-5" />,
+      title: "Email",
+      description: (
+        <a href="mailto:support@focalsprint.com" className="text-primary hover:underline">
+          support@focalsprint.com
+        </a>
+      ),
+    },
+  ]
+  
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div className="min-h-screen bg-gradient-to-bl from-white via-blue-50 to-blue-100 p-6 md:p-12 rounded-xl">
+      <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="space-y-4 mb-16">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="space-y-4">
+          <Badge
+            variant="outline"
+            className="gap-2 px-4 py-2 text-base text-[#2f7df4]"
+          >
             <User className="h-4 w-4" />
-            <span>Contact</span>
-          </div>
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-            Get in Touch
+            Contact
+          </Badge>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+            Get In Touch
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl">
-            We&apos;d love to hear from you. Send us a message and we&apos;ll
-            respond as soon as possible.
-          </p>
         </div>
 
         {/* Content Grid */}
@@ -31,65 +68,38 @@ const ContactPage = () => {
             <div>
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-3">
                 <Globe className="h-5 w-5 text-primary" />
-                Send us a Message
+                <span className="text-blue-700">Send us a Message</span>
               </h2>
               <ContactForm />
             </div>
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
-            <h2 className="text-2xl font-semibold mb-6">Contact Information</h2>
-            <div className="space-y-6">
-              <Card className="p-6 bg-white rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-gray-50 rounded-lg">
-                    <MapPin className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Address</h3>
-                    <p className="text-gray-600">
-                      #929, 4th Floor, AECS Layout,
-                      <br />
-                      3rd Main Road,
-                      <br />
-                      Bangalore- 37
-                    </p>
-                  </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-white rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-gray-50 rounded-lg">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Phone</h3>
-                    <div className="text-gray-600">
-                      <p>Off: 080-42213272</p>
-                      <p>Mob: 9949629935 / 8310590859</p>
+          <div className="space-y-6">
+            <h2 className="text-2xl font-semibold text-blue-700">Contact Information</h2>
+            <div className="grid gap-4">
+              {contactInfo.map((info, index) => (
+                <Card
+                  key={index}
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1 group"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="p-2 bg-primary/10 rounded-lg transition-colors duration-300 group-hover:bg-[#2f7df4]/10">
+                      <div className="text-primary transition-colors duration-300 group-hover:text-[#2f7df4]">
+                        {info.icon}
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">
+                        {info.title}
+                      </h3>
+                      <div className="text-sm text-gray-600">
+                        {info.description}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Card>
-
-              <Card className="p-6 bg-white rounded-lg border border-gray-100 shadow-sm">
-                <div className="flex gap-4">
-                  <div className="p-2 bg-gray-50 rounded-lg">
-                    <Globe className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Email</h3>
-                    <a
-                      href="mailto:support@focalsprint.com"
-                      className="text-primary hover:underline"
-                    >
-                      support@focalsprint.com
-                    </a>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              ))}
             </div>
           </div>
         </div>

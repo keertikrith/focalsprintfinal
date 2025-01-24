@@ -24,11 +24,11 @@ function ConsultingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 p-6 md:p-12">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <div className="min-h-[90vh] bg-gradient-to-b from-white via-blue-50 to-blue-100 p-6 md:p-12 rounded-xl">
+      <div className="max-w-6xl mx-auto space-y-6">
         {/* Header Section */}
         <div className="space-y-4">
-          <Badge variant="outline" className="gap-2 px-4 py-2 text-base">
+          <Badge variant="outline" className="gap-2 px-4 py-2 text-base text-[#2f7df4]">
             <Layers className="h-4 w-4" />
             Consulting and Expert Guidance
           </Badge>
@@ -40,12 +40,12 @@ function ConsultingPage() {
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Overview Section */}
-          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm">
+          <Card className="p-8 hover:shadow-lg transition-shadow duration-300 bg-card/50 backdrop-blur-sm group">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Layers className="h-6 w-6 text-primary" />
+              <div className="p-2 bg-primary/10 rounded-lg transition-colors duration-300 group-hover:bg-[#2f7df4]/10">
+                <Layers className="h-6 w-6 text-primary transition-colors duration-300 group-hover:text-[#2f7df4]" />
               </div>
-              <h2 className="text-2xl font-semibold">Service Overview</h2>
+              <h2 className="text-2xl font-semibold text-blue-700">Service Overview</h2>
             </div>
             <div className="space-y-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
@@ -64,16 +64,18 @@ function ConsultingPage() {
 
           {/* Offerings Grid */}
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold">Key Offerings</h2>
+            <h2 className="text-2xl font-semibold text-blue-700">Key Offerings</h2>
             <div className="grid gap-4">
               {offerings.map((offering, index) => (
                 <Card
                   key={index}
-                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1"
+                  className="p-4 hover:shadow-md transition-all duration-300 hover:translate-x-1 group"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="p-2 bg-primary/10 rounded-lg">
-                      {offering.icon}
+                  <div className="p-2 bg-primary/10 rounded-lg transition-colors duration-300 group-hover:bg-[#2f7df4]/10">
+                      <div className="text-primary transition-colors duration-300 group-hover:text-[#2f7df4]">
+                        {offering.icon}
+                      </div>
                     </div>
                     <div>
                       <h3 className="font-semibold text-lg mb-1">

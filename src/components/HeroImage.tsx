@@ -1,10 +1,9 @@
 import Lottie from "react-lottie";
 import animationData from "../../public/assest1.json"; // Relative path from components directory
+import Image from "next/image";
 
 const HeroImage = () => {
   const defaultOptions = {
-    loop: true,
-    autoplay: true,
     animationData,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -13,7 +12,14 @@ const HeroImage = () => {
 
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Image 
+        src="hompage-logo.webp"
+        alt="Training"
+        layout="intrinsic"
+        width={400}
+        height={400}
+        className="animate-float"
+      />
     </div>
   );
 };

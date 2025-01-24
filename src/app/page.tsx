@@ -1,17 +1,14 @@
 "use client";
 
+import Image from "next/image";
 import SocialLinks from "@/components/SocialLinks";
 import HeroTexts from "@/components/HeroTexts";
-import HeroImage from "@/components/HeroImage";
-import GithubBtn from "@/components/animation/GithubBtn";
 import DownLoadResumeBtn from "@/components/DownLoadResumeBtn";
 import FramerWrapper from "@/components/animation/FramerWrapper";
 
 export const siteConfig = {
   name: "Focal Sprint",
   description: "Classroom and online training programs in tech and IT.",
-  ogImage: "https://mdTaquiImam.vercel.app/og-image.png",
-  url: "https://mdTaquiImam.vercel.app",
 };
 
 export default function Home() {
@@ -19,7 +16,7 @@ export default function Home() {
     <>
       {/* LEFT SIDE */}
       <FramerWrapper
-        className="h-full w-auto flex flex-col justify-start gap-4"
+        className="h-full w-auto flex flex-col justify-start gap-2"
         y={0}
         x={-100}
       >
@@ -36,10 +33,17 @@ export default function Home() {
         y={0}
         x={100}
       >
-        <HeroImage />
+        <div className="flex items-center justify-center">
+        <Image
+          src="/hompage-logo.webp"
+          alt="Training"
+          layout="intrinsic"
+          width={500}
+          height={500}
+          className="ml-10 animate-float"
+        />
+        </div>
       </FramerWrapper>
-
-     
     </>
   );
 }
